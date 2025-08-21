@@ -1,0 +1,6 @@
+[submodule "ms_swift_on_sagemaker/ms_swift"]
+	path = ms_swift_on_sagemaker/ms_swift
+	url = https://github.com/modelscope/ms-swift.git
+[submodule "ms_swift_on_sagemaker/ms-swift"]
+	path = ms_swift_on_sagemaker/ms-swift
+	url = https://github.com/modelscope/ms-swift.git

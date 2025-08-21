@@ -1,30 +1,38 @@
-# Training On SageMaker
+# 大模型 SageMaker 训练框架
 
-本项目主要是用 [LLama-Factory](https://github.com/hiyouga/LLaMA-Factory/tree/3e1bf8325c7ae3ad8e6e3ccc1c644d37030c83ff) 这个框架在 SageMaker 上进行 pretrain/sft/rlhf， 可以方便的进行多机多卡或者单机多卡的训练
+在 Amazon SageMaker 上进行大语言模型训练的完整解决方案，支持多种主流训练框架。
+
+## 项目结构
 
 ```
-|-- llama_factory                    # 依赖的LLama Factory 实现代码
-|   |-- ac_config.yaml                   # accelerat 配置文件
-|   |-- data                             # 训练数据
-|   |-- entry.py                         # training job 任务入口文件
-|   |-- evaluation                       # LLama-Factory 文件
-|   |-- examples                         # LLama-Factory 文件
-|   |-- pyproject.toml                   # LLama-Factory 文件
-|   |-- requirements.txt                 # 依赖包
-|   |-- s5cmd                            
-|   |-- scripts                          # LLama-Factory 文件
-|   |-- src                              # LLama-Factory 文件
-|   `-- train_script_sagemaker.sh        # 训练启动脚本
-|-- submit_training_job.ipynb # 在 SageMaker 提交 Training Job 训练任务的示例代码
-`-- README.md
+├── llama_factory_on_sagemaker/    # LLaMA-Factory 训练框架
+└── ms_swift_on_sagemaker/         # MS-Swift 训练框架
 ```
 
-# Training Job
-如果使用 Training Job，可以参考 [submit_training_job.ipynb](https://github.com/xiaoqunnaws/Training_On_SageMaker/blob/main/submit_training_job.ipynb) 这个 notebook 提交任务训练。跟据需要修改对应的训练机器个数以及类型即可。
+## 支持的训练框架
 
+### LLaMA-Factory
+- 基于 [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) 框架
+- 支持 Pretrain/SFT/RLHF 训练
+- 支持多机多卡和单机多卡训练
 
-# Notebook/本地环境
-如果使用 Notebook 或者本地机器启动训练任务，直接进入 llama_factory 文件夹，根据需要修改 [train_script_sagemaker.sh](https://github.com/xiaoqunnaws/Training_On_SageMaker/blob/main/llama_factory/train_script_sagemaker.sh) 模型路径即可，其他参数也可根据具体情况进行修改
+### MS-Swift
+- 基于 [MS-Swift](https://github.com/modelscope/swift) 框架
+- 支持多种模型的高效微调
+- 集成 DeepSpeed 加速训练
 
-# 更多参数配置
-更多参数配置，可以参考 [LLama-Factory](https://github.com/hiyouga/LLaMA-Factory/tree/3e1bf8325c7ae3ad8e6e3ccc1c644d37030c83ff) 说明进行配置
+## 快速开始
+
+1. 选择训练框架目录
+2. 参考对应的 README 文档
+3. 修改训练配置参数
+4. 提交 SageMaker Training Job
+
+## 环境要求
+
+- Amazon SageMaker
+- Python 3.10+
+
+## 许可证
+
+本项目遵循各训练框架的原始许可证。
