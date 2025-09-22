@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     # 设置脚本权限
     run_command("chmod +x ./train_script_sagemaker.sh", "Setting permissions for train_script_sagemaker.sh")
-    run_command("chmod +x ./train_multi_node.sh", "Setting permissions for train_multi_node.sh")
+    # run_command("chmod +x ./train_multi_node.sh", "Setting permissions for train_multi_node.sh")
     run_command("chmod +x ./s5cmd", "Setting permissions for s5cmd")
 
     print("*****************start cp foundation model*****************************")
